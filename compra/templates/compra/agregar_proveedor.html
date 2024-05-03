@@ -1,0 +1,15 @@
+{% extends "base/base.html" %}
+{% block content %}
+
+    <h1>Agregar Proveedor</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="nombre">Nombre:</label><br>
+        <input type="text" id="nombre" name="nombre"><br>
+        <label for="apellido">Apellido:</label><br>
+        <input type="text" id="apellido" name="apellido"><br>
+        <label for="dni">DNI:</label><br>
+        <input type="text" id="dni" name="dni"><br>
+        <input type="submit" value="Agregar">
+    </form>
+{% endblock %}

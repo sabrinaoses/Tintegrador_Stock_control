@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>StockControl - Agregar Producto</title>
+</head>
+<body>
+    <h1>Agregar Producto</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        <label for="nombre">Nombre:</label><br>
+        <input type="text" id="nombre" name="nombre"><br>
+        <label for="precio">Precio:</label><br>
+        <input type="number" id="precio" name="precio"><br>
+        <label for="stock">Stock:</label><br>
+        <input type="number" id="stock" name="stock"><br>
+        <label for="proveedor">Proveedor:</label><br>
+        <div class="list-group">
+            <select id="proveedor" name="proveedor">
+                {% for proveedor in proveedores %}
+                    <option value="{{ proveedor.id }}">{{ proveedor.nombre }}</option>
+                {% endfor %}
+            </select><br>
+        </div>
+        <input type="submit" value="Agregar Producto">
+    </form>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>StockControl - Actualizar Producto</title>
+</head>
+<body>
+    <h1>Actualizar Producto</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        <label for="nombre">Nombre:</label><br>
+        <input type="text" id="nombre" name="nombre" value="{{ producto.nombre }}"><br>
+        <label for="precio">Precio:</label><br>
+        <input type="number" id="precio" name="precio" value="{{ producto.precio }}" step="0.01"><br>
+        <label for="stock">Stock:</label><br>
+        <input type="number" id="stock" name="stock" value="{{ producto.stock }}"><br>
+        <input type="submit" value="Actualizar">
+    </form>
+    <script>
+        document.getElementById('update-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Evitar que el formulario se envíe normalmente
+
+            // Obtener la URL base
+            var url = window.location.href.split('?')[0];
+            // Redirigir a la lista de productos
+            window.location.href = url.replace('actualizar_producto', 'listar_productos');
+        });
+    </script>
+</body>
+</html>

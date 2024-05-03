@@ -1,0 +1,41 @@
+{% extends "base/base.html" %}
+{% block content %}
+
+
+    <h1>Lista de Productos</h1>
+
+    <table border="1">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Precio</th>
+          <th>Stock</th>
+          <th>Proveedor</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for producto in productos %}
+        <tr>
+          <td>{{ producto.nombre }}</td>
+          <td>{{ producto.precio }}</td>
+          <td>{{ producto.stock_actual }}</td>
+          <td>{{ producto.proveedor }}</td>
+          <td>
+            <form
+              method="post"
+            >
+              {% csrf_token %}
+              <input
+                type="hidden"
+                name="product_id"
+                value="{{ producto.id }}"
+              />
+              <button type="submit">Borrar</button>
+            </form>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+{% endblock %}

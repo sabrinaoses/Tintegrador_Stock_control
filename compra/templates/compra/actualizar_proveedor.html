@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>StockControl - Actualizar Proveedor</title>
+</head>
+<body>
+    <h1>Actualizar Proveedor</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        <label for="nombre">Nombre:</label><br>
+        <input type="text" id="nombre" name="nombre" value="{{ proveedor.nombre }}"><br>
+        <label for="apellido">Apellido:</label><br>
+        <input type="text" id="apellido" name="apellido" value="{{ proveedor.apellido }}" step="0.01"><br>
+        <label for="dni">DNI:</label><br>
+        <input type="number" id="dni" name="dni" value="{{ proveedor.dni }}"><br>
+        <input type="submit" value="Actualizar">
+    </form>
+    <script>
+        document.getElementById('update-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Evitar que el formulario se envíe normalmente
+
+            // Obtener la URL base
+            var url = window.location.href.split('?')[0];
+            // Redirigir a la lista de productos
+            window.location.href = url.replace('actualizar_proveedor', 'listar_proveedores');
+        });
+    </script>
+</body>
+</html>
