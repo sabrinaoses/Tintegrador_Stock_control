@@ -20,10 +20,12 @@ class ProductoEditForm(forms.ModelForm):
 class ProveedorForm(forms.ModelForm):
     class Meta:
         model = Proveedor
+        verbose_name_plural = "proveedores"
         fields = ['nombre', 'apellido', 'dni']
 
 
 class ProveedorEditForm(forms.ModelForm):
     class Meta:
         model = Proveedor
+        verbose_name_plural = "proveedores"
         fields = ['nombre', 'apellido']
