@@ -1,10 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>StockControl - Listar Proveedor</title>
-  </head>
-  <body>
+{% extends "base/base.html" %}
+{% block content %}
+
+
     <h1>Lista de Proveedores</h1>
 
     <table border="1">
@@ -18,9 +15,9 @@
       <tbody>
         {% for proveedor in proveedores %}
         <tr>
-          <td>{{ proveedor.nombre }}</td>
-          <td>{{ proveedor.apellido }}</td>
-          <td>{{ proveedor.dni }}</td>
+          <td class="p-2">{{ proveedor.nombre }}</td>
+          <td class="p-2">{{ proveedor.apellido }}</td>
+          <td class="p-2">{{ proveedor.dni }}</td>
           <td>
             <form
               method="post"
@@ -38,5 +35,5 @@
         {% endfor %}
       </tbody>
     </table>
-  </body>
-</html>
+
+{% endblock %}

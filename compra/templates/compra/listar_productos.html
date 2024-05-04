@@ -16,10 +16,10 @@
       <tbody>
         {% for producto in productos %}
         <tr>
-          <td>{{ producto.nombre }}</td>
-          <td>{{ producto.precio }}</td>
-          <td>{{ producto.stock_actual }}</td>
-          <td>{{ producto.proveedor }}</td>
+          <td class="p-2">{{ producto.nombre }}</td>
+          <td class="p-2">{{ producto.precio }}</td>
+          <td class="p-2">{{ producto.stock_actual }}</td>
+          <td class="p-2">{{ producto.proveedor }}</td>
           <td>
             <form
               method="post"

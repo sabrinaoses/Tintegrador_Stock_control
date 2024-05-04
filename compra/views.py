@@ -18,8 +18,8 @@ def agregar_producto(request):
     else:
         producto_form = ProductoForm()
 
-    return render(request, 'compra/producto_form.html',
-                         {'form': producto_form})
+    return render(request, 'compra/agregar_producto.html',
+                         {'form': agregar_producto})
 
 
 def agregar_proveedor(request):
@@ -30,13 +30,13 @@ def agregar_proveedor(request):
             # Se guardan los datos que provienen del formulario en la B.D.
             nuevo_proveedor = proveedor_form.save(commit=True)
             messages.success(request,
-                             'Se ha agregado correctamente el provvedor{}'.format(nuevo_proveedor))
+                             'Se ha agregado correctamente el proveedor{}'.format(nuevo_proveedor))
             return  redirect(reverse('proveedor:agregar_proveedor', args={nuevo_proveedor.id}))
     else:
         proveedor_form = ProveedorForm()
 
-    return render(request, 'compra/proveedor_form.html',
-                         {'form': proveedor_form})
+    return render(request, 'compra/agregar_proveedor.html',
+                         {'form': agregar_proveedor})
 
 
 #Crear proveedor
@@ -94,11 +94,11 @@ def actualizar_producto(request, pk):
         producto.save()
 
         productos = Producto.objects.all()
-        return render(request, 'compra/listar_productos.html', {'productos': productos})
+        return render(request, 'listar_productos.html', {'productos': productos})
 
     else:
         producto = Producto.objects.get(pk=pk)
-        return render(request, 'compra/.html', {'producto': producto})
+        return render(request, 'listar_productos.html', {'producto': producto})
 
 #Actualizar Proveedor
 
@@ -116,11 +116,11 @@ def actualizar_proveedor(request, pk):
         proveedor.save()
 
         proveedores = Proveedor.objects.all()
-        return render(request, 'compra/listar_proveedor.html', {'proveedores': proveedores})
+        return render(request, 'listar_proveedor.html', {'proveedores': proveedores})
 
     else:
         proveedor = Proveedor.objects.get(pk=pk)
-        return render(request, 'compra/actualizar_proveedor.html', {'proveedor': proveedor})
+        return render(request, 'actualizar_proveedor.html', {'proveedor': proveedor})
 
 
 #Borrar producto
